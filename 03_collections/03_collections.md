@@ -179,9 +179,9 @@
 #### dictionaries exercises:
 
 1. Describe this nested data structure in words: `[{'a':1, 'b':2}, {'c':3, 'd':4}]`
-2. Assign the above structure to the name `d`. Index into `d` to print out only the second dictionary
+2. Assign the above structure to the name `l`. Index into `l` to print out only the second dictionary
 3. Add a 3rd key:value pair `'e':5` to the second dictionary
-4. Delete the key `'a'` from the first dictionary in `d`
+4. Delete the key `'a'` from the first dictionary in `l`
 
 #### Gotcha: compare by reference vs. value
 
