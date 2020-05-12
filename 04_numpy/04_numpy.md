@@ -121,7 +121,7 @@
 4. Write a function called `rms()` that calculates the RMS (root mean square) of an input array. RMS is the the square root of the mean of the square of a signal. To calculate square root, use the function `np.sqrt()`. This can be done in a single line.
 5. Use your `rms()` function to calculate the RMS of the difference between the two arrays in 2.
 6. Concatenate `a` and `b` into a new array called `c`. Now sort `c`, either using the function `np.sort()` or the method `c.sort()`
-7. Create a boolean array `i` that describes where the values in `c` fall between 10 and 20 (inclusive)
+7. Create a boolean array `i` that describes where the values in `c` fall between 10 and 20 (inclusive). Hint: use the `*` or `&` operators to perform a vectorized `AND` operation between two boolean arrays.
 8. Use `i` to extract the corresponding values from `c`
 9. Use *integer* fancy indexing to set the 1st, 3rd and 4th entries in `c` to 0. Check it.
 10. Use *boolean* fancy indexing to set the 1st and last entries in `a` to -1. Check it.
