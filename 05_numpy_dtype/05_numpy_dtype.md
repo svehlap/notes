@@ -1,4 +1,4 @@
-### numpy data types & file operations
+### numpy data types
 
 #### array review (mostly)
 
@@ -21,7 +21,7 @@
     b = a > 5 # boolean indices
     ````
     - use `np.where()` to get integer indices from boolean indices
-    - `i = np.where(a > 5)` # returns tuple of integer indices, one per dimension
+    - `i = np.where(a > 5)` returns tuple of integer indices, one per dimension
     - `i = np.where(a > 5)[0]` or `i, = np.where(a > 5)` pulls out integer indices into first dimension
 - vectorized math operators (`+`, `-`, `*`, `/`, `**`) and comparitors (`==`, `>`, `<`, `!=`)
     - `a = np.array([True, False, False])`
@@ -36,7 +36,7 @@
 - how can we shift all these values to have zero mean and a standard deviation of 1?
     ```python
     a -= a.mean() # now mean is very close to 0
-    a /= a.std() # now std is also very close to 0
+    a /= a.std() # now std is also very close to 1
     ````
 - `a.sort()` sorts in place, `b = np.sort(a)` creates a sorted copy of `a`
 - `np.diff()` finds the difference between consecutive values in `a`
