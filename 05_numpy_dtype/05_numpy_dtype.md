@@ -135,12 +135,12 @@
             - `np.finfo(np.float16).tiny` gives `6.104e-05`, the smallest representable value
     - special values:
         - `np.inf` and `np.nan`, i.e. "infinity" and "not a number"
-            - `np.inf` is used to represent out of range float values
-            - `np.nan` is used to represent invalid float values, like `np.sqrt(-1)`
+            - `np.inf` is used to represent *out of range* float values
+            - `np.nan` is used to represent *invalid* float values, like `np.sqrt(-1)`
             - `inf` is signed (can be +/-), but `nan` has no sign
             - doing any math involving `inf` or `nan` always results in another `inf` or `nan`
             - `np.inf + np.nan` gives `np.nan`
-            - comparing `nan` to anything, even itself, returns `False`, have to use `np.isnan()`
+            - comparing `nan` to anything, even itself, returns `False`, have to use `np.isnan()` to find if a variable equals `nan`, or to find what entries in an array are `nan`
 
 - numpy arrays default to the biggest dtypes, either `np.float64` or `np.int64`:
     - `a = np.array([1, 2, 3])`, `a.dtype` gives int64
