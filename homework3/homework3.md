@@ -13,7 +13,7 @@ Write one script to do all of 1-11. The script should be run from within IPython
             absdiff(a, b)
     Out[1]: array([ 9,  2, 13])
     ````
-2. Load example time series data from `homework3.npz`. Extract all 3 arrays from the file. One of them is named `t` and respresents time points, but the names of the other two you need to figure out. Hint: inspect the object returned when loading the data. For the rest of this exercise, let's call the other two arrays `a` and `b`.
+2. Load example time series data from `homework3.npz`. Extract all 3 arrays from the file. One of them is named `t` and respresents time points, but the names of the other two you need to figure out. Hint: inspect the object returned when loading the data. For the rest of this exercise, let's call the other two arrays `a` and `b`, but in your code and plots you should give them the name they have in the `.npz` file.
 3. Plot `a` and `b` vs `t` in the same plot (i.e., on the same "axes")
 4. Calculate the absolute value of the difference between `a` and `b` using your `absdiff()` function. Give the resulting array the name `absd`
 5. Plot `absd` vs `t` on the same axes.
