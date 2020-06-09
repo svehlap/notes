@@ -297,6 +297,8 @@ Region-based (watershed) segmentation:
 ```python
 from skimage.filters import sobel
 from skimage.morphology import watershed
+from scipy import ndimage
+
 elevation = sobel(coins) # edge detection
 
 markers = np.zeros_like(coins)
