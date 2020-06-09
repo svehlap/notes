@@ -150,6 +150,7 @@ ax[1].hist(moon.ravel(), bins=np.arange(256+1)) # +1 adds right bin edge
     from skimage import exposure
     ohki3 = exposure.rescale_intensity(ohki, (newminval, newmaxval))
     ````
+    where `newminval` is the pixel intensity of the original image that you want to scale down to black, and `newmaxval` is the pixel intensity of the original image that you want to scale up to white.
 
 5. Let's say we want to focus on the middle section of the image. Slice out the middle third of the image (vertically and horizontally), so you end up with an array with about 1/9th as many pixels as the original. Name this subset array `subset`. Display it in a figure.
 
@@ -182,7 +183,7 @@ ax.imshow(immun)
     from skimage import color
     immung = color.rgb2gray(immun)
     immung.shape # now it's only 2D
-    ax.imshow(immun, cmap='gray')
+    ax.imshow(immung, cmap='gray')
     ````
 - images can also have a 4th channel: alpha, aka transparency. The alpha channel is a transparency mask for the image. 0 is fully transparent, 255 is fully opaque. So pixels you don't want painted are set to 0:
 ```python
