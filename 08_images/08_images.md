@@ -1,3 +1,5 @@
+NOTE: There *is* class next week (June 16)
+
 using `plt.subplots()` in jupyter notebook doesn't work?
 
 ### image analysis
@@ -233,8 +235,8 @@ ax.imshow(mask, cmap='gray')
 - to install scikit-video in anacoda: `conda install -c conda-forge scikit-video` at the command line
 - if you don't have anaconda: `pip install scikit-video` or `pip3 install scikit-video` might work
 ```python
-from skvideo import io # note import name skvideo differs from library name scikit-video :(
-mvi = io.vread('movie.avi')
+import skvideo.io # note import name skvideo differs from library name scikit-video :(
+mvi = skvideo.io.vread('movie.avi')
 mvi.shape # 4D array: nframes x nrows x ncols x 3 colour channels (RGB)
 f, ax = plt.subplots()
 ax.imshow(mvi[0]) # plot the first frame
