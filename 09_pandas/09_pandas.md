@@ -246,10 +246,6 @@
         - now only the one column with the NaN is of type float, the rest remain int
         - any stats exclude missing data, e.g. `pd.DataFrame(missd).mean()`
 
-- see [course website](http:/scipycourse2019.github.io) for two different pandas cheat sheets
-
-- [10 min video tour](https://wesmckinney.com/blog/whirlwind-tour-of-pandas-in-10-minutes/) by pandas author Wes McKinney
-
 - ADVANCED: you can generate DataFrames with a hierarchical set of indices using by assigning it a `MultiIndex` instead of just a normal single index:
     - https://pandas.pydata.org/pandas-docs/stable/user_guide/advanced.html
     ```python
@@ -260,6 +256,11 @@
     df = pd.DataFrame(index=mi, columns=columns) # empty, complex structure ready to be filled
     ````
 
+- see [course website](http:/scipycourse2019.github.io) for two different pandas cheat sheets
+
+- here's a handy [10 min text tutorial](https://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html)
+
+- here's a dense [10 min video tour](https://www.youtube.com/watch?v=_T8LGqJtuGc) by Pandas author Wes McKinney
 
 #### DataFrame exercise: Galton study
 
