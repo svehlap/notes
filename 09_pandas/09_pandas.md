@@ -245,6 +245,9 @@
         - `pd.DataFrame(missd)` and `pd.DataFrame(nand)`
         - now only the one column with the NaN is of type float, the rest remain int
         - any stats exclude missing data, e.g. `pd.DataFrame(missd).mean()`
+    - to print all rows and columns, regardless of DataFrame size:
+        `pd.set_option('display.max_rows', None)`
+        `pd.set_option('display.max_columns', None)`
 
 - ADVANCED: you can generate DataFrames with a hierarchical set of indices using by assigning it a `MultiIndex` instead of just a normal single index:
     - https://pandas.pydata.org/pandas-docs/stable/user_guide/advanced.html
@@ -263,6 +266,9 @@
 - here's a dense [10 min video tour](https://www.youtube.com/watch?v=_T8LGqJtuGc) by Pandas author Wes McKinney
 
 #### DataFrame exercise: Galton study
+
+NOTE: This is quite an intricate problemset, almost deserves to be its own homework
+assignment. See solutions in `DataFrame_exercise_solutions.py`
 
 This dataset is taken from Francis Galton's 1885 study and explores the relationship between the heights of adult children and the heights of their parents. Found at http://www.math.uah.edu/stat/data/Galton.html
 
