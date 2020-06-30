@@ -99,7 +99,7 @@
         f, ax = plt.subplots()
         ax.hist(s, bins=30) # similar to what we got before from np.random.normal()
         ````
-    - note that each time you sample a random value, you get different values out:
+    - note that each time you sample a random variable, you get different values out:
         ```python
         ax.hist(rv.rvs(1000), bins=30) # each call adds a new sampling to the plot
         ax.hist(rv.rvs(1000), bins=30)
@@ -112,14 +112,30 @@
         - let's plot the exact representation of the normal distribution over top of the normalized histogram of our 1000 sampled values from that distribution:
         ```python
         f, ax = plt.subplots()
-        ax.hist(s, bins=30, normed=True) # plot a normalized distrib, area == 1
+        ax.hist(s, bins=30, density=True) # plot a normalized distrib, area == 1
         x = np.arange(3, 7, 0.01) # evenly spaced x values from 3 to 7
         y = rv.pdf(x) # exact distribution
-        ax.plot(x, y)
+        ax.plot(x, y, '-')
         ax.set_xlabel('x')
         ax.set_ylabel('probability')
         ax.set_title('mu=5, sigma=0.5, n=1000')
-        f.canvas.set_window_title('sampled and exact distributions')
+        f.canvas.set_window_title('sampled and exact PDFs')
+        ````
+        - can also calculate and plot the cumulative distribution function (CDF), which describes the fraction of data that fall below `x`, as a function of `x`
+        - can construct a CDF by taking the PDF and accumulating the bin counts as you move from left to right
+        - use `rv.cdf(x)`, and plot the CDF with `ax.hist(s, bins, cumulative=True)`
+        - here's the equivalent CDF for the same sample and random variable:
+        ```python
+        f, ax = plt.subplots()
+        # plot normalized CDF:
+        ax.hist(s, bins=30, density=True, cumulative=True) # max val == 1
+        x = np.arange(3, 7, 0.01) # evenly spaced x values from 3 to 7
+        y = rv.cdf(x) # exact cumulative distribution
+        ax.plot(x, y, '-')
+        ax.set_xlabel('x')
+        ax.set_ylabel('probability')
+        ax.set_title('mu=5, sigma=0.5, n=1000')
+        f.canvas.set_window_title('sampled and exact CDFs')
         ````
 
 - stats tests:
@@ -138,7 +154,7 @@
         ````
         - having higher n, i.e. more data, gives you more statistical power, i.e. better able to detect a weak effect:
         ```python
-        s = rv.rvs(500) # acquire more data from same source
+        s = rv.rvs(500) # acquire 10x the amount of data from same source
         f, ax = plt.subplots()
         ax.hist(s, bins='auto') # does it look normal? yes
         t, p = stats.ttest_1samp(s, 0) # p < 0.05, can reject null hypothesis
@@ -175,13 +191,13 @@
         u, up = stats.mannwhitneyu(s1, s2)
         # up << 0.05, but higher than tp
         ````
-    - nice comparison of KS vs. MW: https://www.quora.com/What-are-the-differences-between-the-Kolmogorov-Smirnov-test-and-the-Mann-Whitney-U-test
+    - nice comparison of KS vs. MWU: https://www.quora.com/What-are-the-differences-between-the-Kolmogorov-Smirnov-test-and-the-Mann-Whitney-U-test/answer/Ted-Wrigley - or see `KS_vs_MWU.txt`
     - visually checking distributions for normality is important, but you can also *quantitatively* test for normality with tests, e.g. Kolmogorov-Smirnov 1-sample test, `stats.kstest()`
     - null hypothesis says that the sample comes from the specified theoretical distribution:
         ```python
         mu, sigma = bimodal.mean(), bimodal.std() # blindly assume it's normal
         d, p = stats.kstest(bimodal, 'norm', args=(mu, sigma))
-        # p = 0.0, reject null, not normal
+        # p == 0.0, reject null, not normal
         s = stats.norm.rvs(loc=-2, scale=2, size=200)
         d, p = stats.kstest(s, 'norm', args=(-2, 2))
         # p > 0.05, can't reject null, likely normal
